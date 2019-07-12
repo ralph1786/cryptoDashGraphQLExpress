@@ -4,7 +4,7 @@
   "description": "GraphQL Server",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "author": "Rafael Cruz",
   "license": "ISC",
