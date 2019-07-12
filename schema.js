@@ -11,7 +11,9 @@ const CryptoCurrencyType = new GraphQLObjectType({
   name: "CryptoCurrency",
   fields: () => ({
     currency: { type: GraphQLString },
-    price: { type: GraphQLString }
+    price: { type: GraphQLString },
+    logo_url: { type: GraphQLString },
+    name: { type: GraphQLString }
   })
 });
 
@@ -32,7 +34,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(`https://api.nomics.com/v1/currencies/ticker?key=${keys.ApiKey}`)
-          .then(res => res.data);
+          .then(res => res.data.slice(0, 12));
       }
     },
     news: {
